@@ -1,0 +1,89 @@
+﻿redux:
+
+	ant design pro文档地址:https://pro.ant.design/   ===》和vue-element-admin类似的中台框架
+
+
+使用redux和react结合实现数据交互步骤：
+
+
+1.创建一个react项目
+	create-react-app test01
+2.进入项目根目录
+	cd test01
+3.启动项目
+	添加redux：
+		yarn add redux（和cnpm install redux一致）
+		yarn add react-redux（项目需要react和redux配合使用时需要安装）
+	项目启动：
+
+		yarn start
+
+
+4.创建store模块，后续状态管理均在这个文件中
+	创建：
+		src/store/index.js
+	index.js中：
+		1.定义初始化状态state
+			let beginState={
+    				students:[]
+			}
+
+		2.定义action产生函数，生成action
+			export function findAllStudents(){
+       				 return {
+            				type:"FINDALL_STUDENT"
+        				}
+    				}
+		3.创建reducer函数，关联状态和action
+			function rootReducer(state=beginState,action){
+        			console.log(state,action,'--------');
+			}
+		4.调用reducer函数，将action进行赋值
+			import {createStore} from "redux"
+			let store=createStore(rootReducer);
+		5.导出最新store，以便在入口文件中引用，使用当前模块中的action函数
+
+5.创建一个react子组件，在子组件中访问redux管理状态数据
+	在src下创建pages/students.js  作为子组件
+	students.js中:	
+		1.引入store模块中需要触发的action函数
+		import {findAllStudents,deleteById} from '../store/index'
+		（可以直接在当前模块中引入store，使用store中的disptch方法，但是更好的办法是在index.js中将store当做父组件传递的参数）
+		2.在index.js中引入store
+			import {Provider} from 'react-redux'
+			import store from './store'
+		   修改ReactDOM.render()
+			 //为react中的跟组件提供数据源
+    				<Provider store={store}>
+       					 <App />
+    				</Provider>
+
+		3.引入connect模块，用来导出当前Student
+			import {connect} from 'react-redux'
+			 export default connect(state=>state)(Student);
+		4.可以在自定义的成员方法中使用this.props.dispatch()方法出发action函数
+			this.props.dispatch(findAllStudents());
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
