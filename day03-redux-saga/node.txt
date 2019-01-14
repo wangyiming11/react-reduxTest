@@ -1,0 +1,86 @@
+﻿vscode编辑器下react中jsx代码自动补全（html自动补全）：
+	文件-》-》首选项-》设置-》用户设置-》搜索includeLanguages-》点击 在settings.json中编辑-》在右侧添加属性："emmet.includeLanguages": {
+
+        "javascript": "javascriptreact"
+
+}
+
+
+使用redux进行状态管理：https://www.redux.org.cn/
+
+使用mockjs模拟数据，完成前后端分离：https://github.com/nuysoft/Mock/wiki/Syntax-Specification
+
+
+工作计划在线编辑地址：https://docs.qq.com/sheet/DYUljclhVbGhVQlZw?ADUIN=1370407820&ADSESSION=1544434402&ADTAG=CLIENT.QQ.5599_.0&ADPUBNO=26866&jumpuin=1370407820&tab=BB08J2
+
+
+
+课堂笔记licy阿里云地址： http://120.78.164.247:8080/day01.html   ==》http://134.175.154.93:8080/redux/day01.html
+
+课堂笔记licy github地址：https://github.com/pluslicy/books
+课上代码licy github地址：https://github.com/pluslicy/redux.git
+课后练习wangym github地址：https://github.com/wangyiming11/reactTest.git
+
+指定阿里云gitbook启动端口：gitbook serve --post 8080
+
+阿里云端不启动热加载功能：gitbook serve --post 8080 --[no]live/--no-live
+
+后台启动，关闭服务器后不关闭网址：nohup gitbook serve --post 8080 --[no]live/--no-live &
+
+关闭后台启动服务器进程：
+			查看gitbook进行代号：	ps -ef | grep gitbook 
+			关闭指定代号进程2615：  kill -9 2615
+
+
+****：react js引入  --》BootCDN
+	cjs umd？？？
+
+
+
+
+
+本地文档更新到阿里云：首先更新到github上 _book不提交（已配置）
+		    其次在阿里云端：
+				git clone(首次克隆后不需要重复更新)
+				git pull origin master
+		    重启服务器：gitbook serve --post 8080 --[no]live
+
+
+
+
+
+
+
+
+
+www.itheima.com:黑马程序员
+
+antd:插件库-》elementui
+
+gitbook：编写笔记
+	全局安装gitbook：	cnpm install -g gitbook-cli
+	查看是否成功安装：	gitbook -V
+	初始化giitbook: 	gitbook init
+	本地运行：		gitbook serve    http://localhost:4000
+	输出PDF：????		
+		安装gitbook pdf
+		cnpm install gitbook-pdf -g
+		安装依赖库：
+		apt-get install calibre
+		gitbook -v 2.1.0 pdf   （目标文件为book.pdf）
+	
+
+安装create-react-app：创建react项目脚手架
+全局安装（只需要装一次）
+
+	$ npm install create-react-app -g
+
+	创建项目并且启动
+
+	$ create-react-app my-app 
+	$ cd my-app 
+	$ npm run start
+my-app:
+	public:index.html:导入fontawesome/jquery等
+	index.js->入口文件
+	jsx:javascript+xml

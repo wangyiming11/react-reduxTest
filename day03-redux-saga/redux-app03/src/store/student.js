@@ -2,7 +2,9 @@
 let initState = {
   isLoading:false,
   list:[],
-  message:''
+  message:'',
+  article:[],
+  category:[]
 }
 // action generator
 // 将学生信息设置到state中
@@ -32,9 +34,35 @@ export function closeMsg(){
   }
 }
 
+
+//异步action触发的同步action方法
+export function setCtegory(result){
+  return{
+    type:'SET_CATEGORY',
+    resulr:result
+  }
+}
+
+export function setArticle(result){
+  return{
+    type:'SET_ARTICLE',
+    resulr:result
+  }
+}
+
 // reducers
 function studentReducer(state = initState, action) {
   switch(action.type) {
+    case 'SET_CATEGORY':
+    return{
+      ...state,
+      category:action.resulr
+    }
+    case 'SET_ARTICLE':
+    return{
+      ...state,
+      article:action.resulr
+    }
     case 'SET_STUDENT': 
       return {
         ...state,

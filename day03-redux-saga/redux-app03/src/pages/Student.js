@@ -8,7 +8,19 @@ import {
 } from '../store/student'
 import './Student.css'
 
+
+//引入异步action函数，在页面加载时直接调用
+  import {axyncLoad} from '../store/rootSaga'
+
 class Student extends Component {
+
+
+  constructor(props){
+    super(props);
+    this.props.dispatch(axyncLoad());
+  }
+
+
   handleShowMsg = ()=>{
     this.props.dispatch(showMsg('hello world'))
   }
@@ -24,8 +36,8 @@ class Student extends Component {
   }
 
   render(){
-    console.log(this.props);
-    let {isLoading,list,message} = this.props.students;
+    console.log(this.props,'-----');
+    let {isLoading,list,message,category,article} = this.props.students;
 
     let loadingBox;
     if(isLoading){
@@ -49,6 +61,20 @@ class Student extends Component {
         <div>{msgBox}</div>
         <div>
           {JSON.stringify(list)}
+        </div>
+        <div>
+          <div>
+            <h2>栏目信息：</h2>
+            <h6>
+            {JSON.stringify(category)}
+            </h6>
+          </div>
+          <div>
+            <h2>文章信息：</h2>
+           <h6>
+           {JSON.stringify(article)}
+           </h6>
+          </div>
         </div>
       </div>
     )
